@@ -1,0 +1,40 @@
+# General Python stuff
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+
+# Rasa model files
+*.tar.gz
+models/
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.swp
+*.swo
+
+# Rasa actions server (if using custom actions)
+actions/
+
+# Configuration files
+config.yml
+credentials.yml
+endpoints.yml
+domain.yml
+
+# Test files (optional)
+test.yml
+
+# Sensitive data files (API keys or tokens)
+.env
