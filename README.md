@@ -22,7 +22,7 @@ Sigue estos pasos para configurar el proyecto en tu máquina local:
 ### 1. Clona el repositorio
 
 ```bash
-git clone https://github.com/tu_usuario/tu_repositorio.git
+git clone [https://github.com/tu_usuario/tu_repositorio.git](https://github.com/alexoterol/academic-chatbot-rasa)
 cd tu_repositorio
 ```
 
