@@ -1,0 +1,78 @@
+[
+  {
+    "text": "translate \"good morning\" to spanish",
+    "entities": [
+      {
+        "start": 11,
+        "end": 23,
+        "value": "good morning",
+        "entity": "text"
+      },
+      {
+        "start": 28,
+        "end": 35,
+        "value": "spanish",
+        "entity": "target_language"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "text",
+        "start": 16,
+        "end": 23,
+        "confidence_entity": 0.8890716433525085,
+        "value": "morning",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "target_language",
+        "start": 28,
+        "end": 35,
+        "confidence_entity": 0.9967705011367798,
+        "value": "spanish",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "how do you say \"thank you\" in french?",
+    "entities": [
+      {
+        "start": 16,
+        "end": 25,
+        "value": "thank you",
+        "entity": "text"
+      },
+      {
+        "start": 30,
+        "end": 36,
+        "value": "french",
+        "entity": "target_language"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "text",
+        "start": 16,
+        "end": 21,
+        "confidence_entity": 0.9920727610588074,
+        "value": "thank",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "target_language",
+        "start": 30,
+        "end": 36,
+        "confidence_entity": 0.9975501894950867,
+        "value": "french",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

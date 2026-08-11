@@ -2,7 +2,7 @@
 
 Chatbot conversacional construido con **Rasa** que, además de una conversación
 básica de cortesía (saludo, despedida, estado de ánimo), traduce texto entre
-idiomas usando la librería **googletrans**.
+idiomas usando la librería **deep-translator** (Google Translate).
 
 ## Requisitos
 
@@ -36,9 +36,6 @@ source .venv/bin/activate
 
 ```bash
 pip install -U pip
-pip install rasa
-pip install googletrans==4.0.0-rc1
-
 pip install -r requirements.txt
 ```
 
@@ -72,7 +69,7 @@ rasa shell
 
 ```
 data/            # Ejemplos de NLU, reglas e historias de conversación
-actions/         # Acción personalizada action_translate (googletrans)
+actions/         # Acción personalizada action_translate (deep-translator)
 tests/           # Historias de prueba para validar el bot
 domain.yml       # Intenciones, entidades y respuestas del bot
 config.yml       # Pipeline de NLU y políticas de diálogo
@@ -86,6 +83,10 @@ Ejemplo de mensaje que dispara `action_translate`:
 ```
 Traduce "gracias" al alemán
 ```
+
+Nota: al usar el endpoint gratuito de Google Translate, alguna traducción
+puntual de palabras muy cortas o ambiguas puede devolverse sin cambios; no es
+un fallo de configuración, es una limitación del servicio gratuito.
 
 ## Ejecutar los tests
 

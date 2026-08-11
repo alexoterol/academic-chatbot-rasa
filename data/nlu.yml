@@ -117,3 +117,11 @@ nlu:
     - who won the football game last night?
     - qué tiempo hace hoy?
     - puedes pedirme una pizza?
+
+- regex: text
+  examples: |
+    - (?<=").+?(?=")
+
+- regex: target_language
+  examples: |
+    - \b(francés|frances|french|italiano|italian|inglés|ingles|english|alemán|aleman|german|español|espanol|spanish)\b
