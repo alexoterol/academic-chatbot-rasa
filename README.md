@@ -1,53 +1,94 @@
 # Rasa Language Translation Chatbot
 
-Este es un chatbot de traducción de idiomas desarrollado con **Rasa**. Utiliza la librería **googletrans** para traducir texto entre diferentes idiomas.
-
-## Descripción
-
-Este proyecto de chatbot está diseñado para permitir a los usuarios traducir texto de un idioma a otro utilizando un bot conversacional. Está basado en **Rasa**, un marco de código abierto para construir aplicaciones de inteligencia artificial conversacional, como chatbots y asistentes virtuales. La traducción se realiza utilizando la librería **googletrans**.
+Chatbot conversacional construido con **Rasa** que, además de una conversación
+básica de cortesía (saludo, despedida, estado de ánimo), traduce texto entre
+idiomas usando la librería **googletrans**.
 
 ## Requisitos
 
-Asegúrate de tener las siguientes dependencias instaladas:
-
-- Python 3.7 o superior
-- Rasa
-- googletrans
-- Virtualenv o entorno de Conda (opcional pero recomendado)
+- **Python 3.10** (Rasa 3.6 no soporta 3.11+; si no lo tienes, instálalo con
+  `winget install --id Python.Python.3.10` en Windows o desde
+  [python.org](https://www.python.org/downloads/))
+- pip
 
 ## Instalación
-
-Sigue estos pasos para configurar el proyecto en tu máquina local:
 
 ### 1. Clona el repositorio
 
 ```bash
-git clone [https://github.com/tu_usuario/tu_repositorio.git](https://github.com/alexoterol/academic-chatbot-rasa)
-cd tu_repositorio
+git clone https://github.com/alexoterol/academic-chatbot-rasa.git
+cd academic-chatbot-rasa
 ```
 
-### 2. Crea y activa un entorno virtual (opcional)
-Usando virtualenv:
+### 2. Crea y activa un entorno virtual
 
 ```bash
-Copy
-python -m venv .venv
-source .venv/bin/activate  # En Linux/macOS
-.venv\Scripts\activate  # En Windows
+py -3.10 -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+
+# Linux/macOS
+source .venv/bin/activate
 ```
 
-### 3. Instalar las dependencias
+### 3. Instala las dependencias
+
 ```bash
 pip install -U pip
 pip install rasa
 pip install googletrans==4.0.0-rc1
+
+pip install -r requirements.txt
 ```
 
 ## Ejecutando el proyecto
-### Iniciar el servidor
-En una terminal, ejecuta:
+
+Con el entorno virtual activado:
+
+### 1. Entrena el modelo
+
+```bash
+rasa train
+```
+
+### 2. Inicia el servidor de acciones (necesario para `action_translate`)
+
+En una terminal:
 
 ```bash
 rasa run actions
-rasa bash
+```
+
+### 3. Habla con el bot
+
+En otra terminal (con el entorno virtual también activado):
+
+```bash
+rasa shell
+```
+
+## Estructura del proyecto
+
+```
+data/            # Ejemplos de NLU, reglas e historias de conversación
+actions/         # Acción personalizada action_translate (googletrans)
+tests/           # Historias de prueba para validar el bot
+domain.yml       # Intenciones, entidades y respuestas del bot
+config.yml       # Pipeline de NLU y políticas de diálogo
+endpoints.yml    # Endpoint del servidor de acciones
+```
+
+## Probar el traductor
+
+Ejemplo de mensaje que dispara `action_translate`:
+
+```
+Traduce "gracias" al alemán
+```
+
+## Ejecutar los tests
+
+```bash
+rasa test
 ```

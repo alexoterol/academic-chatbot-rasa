@@ -38,3 +38,5 @@ test.yml
 
 # Sensitive data files (API keys or tokens)
 .env
+
+.rasa/
